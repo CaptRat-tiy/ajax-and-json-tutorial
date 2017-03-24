@@ -6,20 +6,21 @@ window.onload = function gettinSwapiWithIt () {
   $.ajax({
     url: url
   }).done(function(data) {
-    // console.log('The returned object is:', data)
+    console.log('The returned object is:', data)
 
     let routes = [];
     let values = [];
-    let routesLength = data.length
+    let routesLength = data.length;
     for (let i = 0; i < routesLength; i++) {
-        routes = routes + (data[i].Text + ", ");
-        values = values + (data[i].Value + ", ")
+        routes.push(data[i].Text);
+        values.push(data[i].Value);
     }
 console.log(routes);
-
-    if (routes[0].Text === 'Union Depot') {
-    console.log('the route called Union Depot is known as ', routes.Value);
-      }
-    else console.log("The NY bus routes are known by these names: " + routes + "\n \n and have these identifier numbers: " + values +',');
+console.log(values);
+console.log(routes[0])
+    if (routes[0] === 'Union Depot ') {
+    console.log('the route called Union Depot is known as ', routes);
+    }
+    // else console.log("The NY bus routes are known by these names: " + routes + "\n \n and have these identifier numbers: " + values +',');
   })
 }
